@@ -1,167 +1,64 @@
-# 10 Object-oriented Programming: SVG Logo Maker
+  # Logo Generator
+  [![GitHub License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Your Task
+  ### Description:
+  The project is an assignment of a coding bootcamp program, with the purpose for students learn how to use OOP and Node.js. The Logo Generator Application is a tool designed to create custom logos based on the preferences of the users.
+  
+  ### Installation:
+    On the terminal, typed the commands:
+    - "npm init -y"
+    - "npm install inquirer@8.2.4"
+    - "npm install jest"
+    - "npm install jest --save-dev".
 
-Your task is to build a Node.js command-line application that takes in user input to generate a logo and save it as an [SVG file](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics). The application prompts the user to select a color and shape, provide text for the logo, and save the generated SVG to a `.svg` file.
+    In the index.js file:
+    - imported packages(Libraries for interactive prompts and file system module for reading and writing files)
+    - imported the module from shape.js
 
-Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its functionality and passes all of the tests. You’ll need to submit a link to the video **and** add it to the README of your project.
+    Then, in the shapes.js file:
+    - Defined a base Shape class
+    - Created Triangle class that extends the base Shape class
+    - Render method to generate the SVG content for a triangle
+    - Created Circle class that extends the base Shape class
+    - Render method to generate the SVG content for a circle
+    - Created Square class that extends the base Shape class
+    - Used render method to generate the SVG content for a square
+    - Exported the custom shape classes to be used in the index.js file as an object
 
-Refer to the [Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) on the Full-Stack Blog for additional guidance on creating a video.
+    Then back to the index.js file:
+    - Imported custom shape classes corresponding to the object 
+    - Nameed the output SVG file
+    - Created array of questions to prompt the user for logo details (shape, text, shape color and text color) as an object
+    - Created function to write data to a file, in this case adding info to the SVG file
+    - Created function to initialize the logo creation process
+    - Prompted the user with the questions array 
+    - Console logged the confirmation that the logo was created after user responded to all the questions
+    - Created a new Circle object 
+    - Created a new Square object
+    - Created a new Triangle object
+    - Set the shape's color to be based on user input    
+    - Used return to generate an SVG content using the selected shape and user input
+    - Used writeToFile to write the SVG data to the 'logo.svg' file
+    - Called the init function to start the logo creation process
 
-> **Note**: There is no starter code for this assignment.
-### User Story
+  ### Usage:
+  Open the terminal, git clone the SSH key for this repository and navigate to the repository. Type "npm init -y", "npm install inquirer@8.2.4", "npm install jest", "npm install jest --save-dev" and then finally "node index.js". Answer the 4 questions that will be displayed on the terminal by either typing the answer or selecting one alternative from a list. The questions asks the text to be inside the logo, the color of the text font, the shape of the logo and the color of the shape. When all the questions are answered, type "code ." and the VS Code program will be opened. The new generated code file can be accessed by opening the logo.svg file. To see what the logo created looks like, right click on the "logo.svg" file, and click on "Reveal in File Explorer", and a browser page will open displaying the logo created. 
 
-```md
-AS a freelance web developer
-I WANT to generate a simple logo for my projects
-SO THAT I don't have to pay a graphic designer
-```
+  ### Contributions
+  I have received advice from the UC Berkeley Extension tutors Henry Weigand on pseudocoding, and Matthew Calimbas on debugging my code. I also reached out to the Mozilla Developer webpage (https://developer.mozilla.org/en-US/) and NPM Docs (https://docs.npmjs.com/) for documentation.
 
-## Acceptance Criteria
+  ### Developer Info:
+  - GitHub URL: https://github.com/virginiafreitas
+  - e-mail address: virginiacdefreitas@gmail.com
 
-```md
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for text
-THEN I can enter up to three characters
-WHEN I am prompted for the text color
-THEN I can enter a color keyword (OR a hexadecimal number)
-WHEN I am prompted for a shape
-THEN I am presented with a list of shapes to choose from: circle, triangle, and square
-WHEN I am prompted for the shape's color
-THEN I can enter a color keyword (OR a hexadecimal number)
-WHEN I have entered input for all the prompts
-THEN an SVG file is created named `logo.svg`
-AND the output text "Generated logo.svg" is printed in the command line
-WHEN I open the `logo.svg` file in a browser
-THEN I am shown a 300x200 pixel image that matches the criteria I entered
-```
+  ### License:
+  The application is covered under the MIT license.
 
-## Mock-Up
-
-The following image shows a mock-up of the generated SVG given the following input entered by the user: `SVG` for the text, `white` for the text color, `circle` from the list of shapes, and `green` for the shape color. Note that this is just an image of the output SVG and not the SVG file itself:
-
-![Image showing a green circle with white text that reads "SVG.".](./Images/10-oop-homework-demo.png)
-
-## Additional Requirements
-
-This Challenge combines many of the skills covered so far. In addition to the User Story and Acceptance Criteria, we’ve provided some guidelines to help you get started.
-
-Because this Challenge requires a video submission, refer to the [Full-Stack Blog video submission guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for guidance on creating and sharing a video.
-
-Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4) for collecting input from the user. The application will be invoked by using the following command:
-
-```bash
-node index.js
-```
-
-It is recommended that you start with a directory structure that looks like the following example:
-
-```md
-.  
-├── examples/           // Example svg file(s) created with the app
-├── lib/                // Folder for classes or functions
-    ├── shapes.js       // Exports `Triangle`, `Circle`, and `Square` classes
-    ├── shapes.test.js  // Jest tests for shapes
-    └── more...         // Additional files and tests
-├── .gitignore          // Indicates which folders and files Git should ignore
-├── index.js            // Runs the application using imports from lib/
-├── package.json
-└── README.md           // App description, link to video, setup and usage instructions           
-```
-
-> **Important**: Make sure that you remove `dist` from the `.gitignore` file so that Git will track this folder and include it when you push up to your application's repository.
-The application must include `Triangle`, `Circle`, and `Square` classes, as well as tests for each of these classes using Jest. While not a requirement, it is recommended that you place any common functionality and properties shared by the `Triangle`, `Circle`, and `Square` classes in a parent `Shape` class and use inheritance to reuse the code in the child classes.
-
-Each shape class should be tested for a `render()` method that returns a string for the corresponding SVG file with the given shape color.
-
-The following example test should pass:
-
-```js
-const shape = new Triangle();
-shape.setColor("blue");
-expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" fill="blue" />');
-```
-
-You may need to add additional files in the `lib` folder for handling user input, writing to a file, etc. Writing tests for these additional files is **optional**.
-
-## Helpful SVG Resources
-
-* [Example SVG](https://static.fullstack-bootcamp.com/fullstack-ground/module-10/circle.svg)
-
-* [Scalable Vector Graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)
-
-* [SVG tutorial](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial)
-
-* [Basic SVG shapes](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes)
-
-* [Text in SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts)
-
-* [SVG VS Code extension](https://marketplace.visualstudio.com/items?itemName=jock.svg)
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-This Challenge is graded based on the following criteria:
-
-### Deliverables: 15%
-
-* At least one sample SVG file generated using the application must be submitted.
-
-* Your GitHub repository containing your application code.
-
-### Walkthrough Video: 32%
-
-* A walkthrough video that demonstrates the functionality of the SVG logo maker and passing tests must be submitted.
-
-* The `README.md` file must include a link to the walkthrough video.
-
-* The walkthrough video must show all tests passing from the command line.
-
-* The walkthrough video must demonstrate how a user would invoke the application from the command line.
-
-* The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
-
-* The walkthrough video must demonstrate a generated SVG file, showing the file being opened in the browser. The image in the browser must reflect the choices made by the user (text, shape, and colors).
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Uses the [Inquirer package](https://www.npmjs.com/package/inquirer/v/8.2.4).
-
-  * Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
-
-  * The application must have `Triangle`, `Square`, and `Circle` classes.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit the following for review:
-
-* A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-* At least one sample SVG file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+  ### Table of Content
+  * [Description](#description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contributions](#contributions)
+  * [Developer Info](#developerinfo)
+  * [License](#license)
+  
