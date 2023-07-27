@@ -45,4 +45,13 @@ function writeToFile(fileName, data) {
   return fs.writeFileSync(path.join(process.cwd(), fileName), data)
 }
 
+// Function to initialize the logo creation process
+function init() {
+  inquirer
+
+
+
+
+
+};
 
