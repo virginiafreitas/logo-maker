@@ -72,7 +72,9 @@ function init() {
   }
   )
 
-
+  .then(data => {
+    writeToFile('logo.svg', data) // Write the SVG data to the 'logo.svg' file
+  })
 
 };
 
