@@ -51,7 +51,26 @@ function init() {
 
   .prompt(questions) // Prompt the user with the questions array
 
-
+  .then((response) => {
+    console.log("Generated logo.svg.") // Log the confirmation that the logo was created after user responded to all the questions
+    let shape;
+    if (response.shape === "circle") {
+          shape = new Circle() // Create a new Circle object
+        } else if (response.shape === "square") {
+          shape = new Square() // Create a new Square object
+        } else {
+          shape = new Triangle() // Create a new Triangle object
+        }
+    shape.setColor(response.shapecolor) // Set the shape's color based on user input
+    // Generate an SVG content using the selected shape and user input
+    return `        
+    <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    ${shape.render()}
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${response.fontcolor}">${response.text}</text>
+    </svg>
+    `
+  }
+  )
 
 
 
