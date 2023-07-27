@@ -49,6 +49,8 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer
 
+  .prompt(questions) // Prompt the user with the questions array
+
 
 
 
