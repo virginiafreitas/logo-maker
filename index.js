@@ -40,5 +40,9 @@ const questions = [
   }
 ];
 
+// Function to write data to a file, in this case adding info to the SVG file
+function writeToFile(fileName, data) {
+  return fs.writeFileSync(path.join(process.cwd(), fileName), data)
+}
 
 
