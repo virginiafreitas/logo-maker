@@ -78,3 +78,5 @@ function init() {
 
 };
 
+init(); // Call the init function to start the logo creation process
+
