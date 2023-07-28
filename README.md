@@ -44,6 +44,16 @@
   ### Usage:
   Open the terminal, git clone the SSH key for this repository and navigate to the repository. Type "npm init -y", "npm install inquirer@8.2.4", "npm install jest", "npm install jest --save-dev" and then finally "node index.js". Answer the 4 questions that will be displayed on the terminal by either typing the answer or selecting one alternative from a list. The questions asks the text to be inside the logo, the color of the text font, the shape of the logo and the color of the shape. When all the questions are answered, type "code ." and the VS Code program will be opened. The new generated code file can be accessed by opening the logo.svg file. To see what the logo created looks like, right click on the "logo.svg" file, and click on "Reveal in File Explorer", and a browser page will open displaying the logo created. [Watch this video](https://drive.google.com/file/d/1-Gqu8j7SdubodzF8uU-p1wbAhYzxAckj/view?usp=sharing) to learn how to use the application.
 
+  ### Testing:
+  To test each class of the application, type in the terminal "npm run test" and wait for the response that should say:
+
+  "PASS lib/shapes.test.js
+  - Triangle -> should render the SVG content for a triangle with the provided fill color
+  - Circle -> should render the SVG content for a circle with the provided fill color
+  - Square -> should render the SVG content for a square with the provided fill color
+  Test Suites: 1 passed, 1 total
+  Tests: 3 passed, 3 total"
+
   ### Contributions
   I have received advice from the UC Berkeley Extension tutors Henry Weigand on pseudocoding, and Matthew Calimbas on debugging my code. I also reached out to the [Mozilla Developer](https://developer.mozilla.org/en-US/) and [NPM](https://docs.npmjs.com/) webpages for documentation.
 

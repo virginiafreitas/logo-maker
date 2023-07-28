@@ -3,7 +3,7 @@ const inquirer = require('inquirer'); // Library for interactive prompts
 const fs = require('fs'); // File system module for reading and writing files
 
 //imported the module from shape.js
-const { Triangle, Square, Circle } = require('./lib/shapes.js') // Import custom shape classes corresponding to the object 
+const {Triangle, Circle, Square} = require('./lib/shapes.js') // Import custom shape classes corresponding to the object 
 
 const path = require('path'); // Path module for working with file paths
 const filename = "logo.svg"; // Name of the output SVG file
@@ -54,7 +54,7 @@ function init() {
   .then((response) => {
     console.log("Generated logo.svg.") // Log the confirmation that the logo was created after user responded to all the questions
     let shape;
-    if (response.shape === "circle") {
+     if (response.shape === "circle") {
           shape = new Circle() // Create a new Circle object
         } else if (response.shape === "square") {
           shape = new Square() // Create a new Square object
